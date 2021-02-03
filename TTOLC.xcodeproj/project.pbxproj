@@ -3,10 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0613308B95CCD38A8F474AAB /* Pods_TTOLC_TTOLCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EAFB209C12B0CB27901C69 /* Pods_TTOLC_TTOLCUITests.framework */; };
+		4737485A13EDC202AD50B0AC /* Pods_TTOLC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC04513D72895DD9CF995AB /* Pods_TTOLC.framework */; };
+		520CE6A92502C37600AED4C1 /* DetailBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520CE6A82502C37600AED4C1 /* DetailBookViewController.swift */; };
+		5218760F247728310087ECA0 /* SectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5218760E247728310087ECA0 /* SectionTableViewController.swift */; };
+		52187611247728590087ECA0 /* CustomSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52187610247728590087ECA0 /* CustomSectionTableViewCell.swift */; };
+		52187613247729370087ECA0 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52187612247729370087ECA0 /* Section.swift */; };
 		522CE78D246BAA9700260B57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CE78C246BAA9700260B57 /* AppDelegate.swift */; };
 		522CE78F246BAA9700260B57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CE78E246BAA9700260B57 /* ViewController.swift */; };
 		522CE792246BAA9700260B57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522CE790246BAA9700260B57 /* Main.storyboard */; };
@@ -15,6 +21,23 @@
 		522CE79A246BAA9800260B57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522CE798246BAA9800260B57 /* LaunchScreen.storyboard */; };
 		522CE7A5246BAA9900260B57 /* TTOLCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CE7A4246BAA9900260B57 /* TTOLCTests.swift */; };
 		522CE7B0246BAA9900260B57 /* TTOLCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CE7AF246BAA9900260B57 /* TTOLCUITests.swift */; };
+		523E42E225042FED00EE11B0 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523E42E125042FED00EE11B0 /* MainMenu.swift */; };
+		523E42E4250438D900EE11B0 /* FirstTypeMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523E42E3250438D900EE11B0 /* FirstTypeMenuViewController.swift */; };
+		523E42E625043AFF00EE11B0 /* CustomFirstTypeMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523E42E525043AFF00EE11B0 /* CustomFirstTypeMenuTableViewCell.swift */; };
+		5256D273246D20B200FF5BAE /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256D272246D20B200FF5BAE /* TableViewController.swift */; };
+		526A040F246E95C70041A57A /* DonationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A040E246E95C70041A57A /* DonationViewController.swift */; };
+		5299C5E024F9943700E09C68 /* SecondTypeMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5299C5DF24F9943700E09C68 /* SecondTypeMenuViewController.swift */; };
+		529BCF2B246C108900477BE7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529BCF2A246C108900477BE7 /* Post.swift */; };
+		529BCF2D246C1DD100477BE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 529BCF2C246C1DD100477BE7 /* GoogleService-Info.plist */; };
+		529BCF2F246C26CE00477BE7 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529BCF2E246C26CE00477BE7 /* VideoViewController.swift */; };
+		52B70F36247D0949009938CC /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B70F35247D0949009938CC /* CollectionViewController.swift */; };
+		52B70F39247D09F6009938CC /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B70F37247D09F6009938CC /* CollectionViewCell.swift */; };
+		52B70F3A247D09F6009938CC /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52B70F38247D09F6009938CC /* CollectionViewCell.xib */; };
+		52D9E909250187EA00C4BB1B /* HorBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D9E908250187EA00C4BB1B /* HorBooks.swift */; };
+		52DD106624F2436100D2AD0D /* CustomMainSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DD106524F2436100D2AD0D /* CustomMainSectionTableViewCell.swift */; };
+		52DEBDBE24F1BA3D002652A6 /* CustomVideoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DEBDBD24F1BA3D002652A6 /* CustomVideoViewCell.swift */; };
+		52EBB33D24710ECF001A8D02 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EBB33C24710ECF001A8D02 /* CustomTableViewCell.swift */; };
+		6216A63DE1C51F83D53C4F72 /* Pods_TTOLCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E5CE14F99AD0D3501DA164 /* Pods_TTOLCTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +58,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05EAFB209C12B0CB27901C69 /* Pods_TTOLC_TTOLCUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTOLC_TTOLCUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		22E5CE14F99AD0D3501DA164 /* Pods_TTOLCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTOLCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3032CDC4B164EB8D31BC0F74 /* Pods-TTOLCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTOLCTests.debug.xcconfig"; path = "Target Support Files/Pods-TTOLCTests/Pods-TTOLCTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3E1D800FEF1A2710A48FDFA7 /* Pods-TTOLC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTOLC.debug.xcconfig"; path = "Target Support Files/Pods-TTOLC/Pods-TTOLC.debug.xcconfig"; sourceTree = "<group>"; };
+		520CE6A82502C37600AED4C1 /* DetailBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBookViewController.swift; sourceTree = "<group>"; };
+		5218760E247728310087ECA0 /* SectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewController.swift; sourceTree = "<group>"; };
+		52187610247728590087ECA0 /* CustomSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSectionTableViewCell.swift; sourceTree = "<group>"; };
+		52187612247729370087ECA0 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		522CE789246BAA9700260B57 /* TTOLC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTOLC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		522CE78C246BAA9700260B57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		522CE78E246BAA9700260B57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +80,28 @@
 		522CE7AB246BAA9900260B57 /* TTOLCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTOLCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		522CE7AF246BAA9900260B57 /* TTOLCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTOLCUITests.swift; sourceTree = "<group>"; };
 		522CE7B1246BAA9900260B57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		523E42E125042FED00EE11B0 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		523E42E3250438D900EE11B0 /* FirstTypeMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTypeMenuViewController.swift; sourceTree = "<group>"; };
+		523E42E525043AFF00EE11B0 /* CustomFirstTypeMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFirstTypeMenuTableViewCell.swift; sourceTree = "<group>"; };
+		5256D272246D20B200FF5BAE /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		526A040D246E91880041A57A /* TTOLC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TTOLC.entitlements; sourceTree = "<group>"; };
+		526A040E246E95C70041A57A /* DonationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationViewController.swift; sourceTree = "<group>"; };
+		5299C5DF24F9943700E09C68 /* SecondTypeMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTypeMenuViewController.swift; sourceTree = "<group>"; };
+		529BCF2A246C108900477BE7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		529BCF2C246C1DD100477BE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		529BCF2E246C26CE00477BE7 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		52B70F35247D0949009938CC /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		52B70F37247D09F6009938CC /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		52B70F38247D09F6009938CC /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		52D9E908250187EA00C4BB1B /* HorBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorBooks.swift; sourceTree = "<group>"; };
+		52DD106524F2436100D2AD0D /* CustomMainSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainSectionTableViewCell.swift; sourceTree = "<group>"; };
+		52DEBDBD24F1BA3D002652A6 /* CustomVideoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVideoViewCell.swift; sourceTree = "<group>"; };
+		52EBB33C24710ECF001A8D02 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		8B3488E5540DFD8FA2CBD0D7 /* Pods-TTOLC-TTOLCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTOLC-TTOLCUITests.release.xcconfig"; path = "Target Support Files/Pods-TTOLC-TTOLCUITests/Pods-TTOLC-TTOLCUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9D678B617F06E4835A33D0F4 /* Pods-TTOLCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTOLCTests.release.xcconfig"; path = "Target Support Files/Pods-TTOLCTests/Pods-TTOLCTests.release.xcconfig"; sourceTree = "<group>"; };
+		CCC04513D72895DD9CF995AB /* Pods_TTOLC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTOLC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE90471E0F65581F20D08F0D /* Pods-TTOLC-TTOLCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTOLC-TTOLCUITests.debug.xcconfig"; path = "Target Support Files/Pods-TTOLC-TTOLCUITests/Pods-TTOLC-TTOLCUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F90DB6AA356269530E8361D6 /* Pods-TTOLC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTOLC.release.xcconfig"; path = "Target Support Files/Pods-TTOLC/Pods-TTOLC.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4737485A13EDC202AD50B0AC /* Pods_TTOLC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6216A63DE1C51F83D53C4F72 /* Pods_TTOLCTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,19 +125,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0613308B95CCD38A8F474AAB /* Pods_TTOLC_TTOLCUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		039BA2A664987B21D3DE18B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CCC04513D72895DD9CF995AB /* Pods_TTOLC.framework */,
+				05EAFB209C12B0CB27901C69 /* Pods_TTOLC_TTOLCUITests.framework */,
+				22E5CE14F99AD0D3501DA164 /* Pods_TTOLCTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		393F175A1A6F05A2377F5176 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E1D800FEF1A2710A48FDFA7 /* Pods-TTOLC.debug.xcconfig */,
+				F90DB6AA356269530E8361D6 /* Pods-TTOLC.release.xcconfig */,
+				DE90471E0F65581F20D08F0D /* Pods-TTOLC-TTOLCUITests.debug.xcconfig */,
+				8B3488E5540DFD8FA2CBD0D7 /* Pods-TTOLC-TTOLCUITests.release.xcconfig */,
+				3032CDC4B164EB8D31BC0F74 /* Pods-TTOLCTests.debug.xcconfig */,
+				9D678B617F06E4835A33D0F4 /* Pods-TTOLCTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		522CE780246BAA9700260B57 = {
 			isa = PBXGroup;
 			children = (
 				522CE78B246BAA9700260B57 /* TTOLC */,
+				529BCF29246C104C00477BE7 /* Model */,
 				522CE7A3246BAA9900260B57 /* TTOLCTests */,
 				522CE7AE246BAA9900260B57 /* TTOLCUITests */,
 				522CE78A246BAA9700260B57 /* Products */,
+				393F175A1A6F05A2377F5176 /* Pods */,
+				039BA2A664987B21D3DE18B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +181,30 @@
 		522CE78B246BAA9700260B57 /* TTOLC */ = {
 			isa = PBXGroup;
 			children = (
+				526A040D246E91880041A57A /* TTOLC.entitlements */,
 				522CE78C246BAA9700260B57 /* AppDelegate.swift */,
 				522CE78E246BAA9700260B57 /* ViewController.swift */,
+				52DD106524F2436100D2AD0D /* CustomMainSectionTableViewCell.swift */,
+				523E42E3250438D900EE11B0 /* FirstTypeMenuViewController.swift */,
+				523E42E525043AFF00EE11B0 /* CustomFirstTypeMenuTableViewCell.swift */,
+				5299C5DF24F9943700E09C68 /* SecondTypeMenuViewController.swift */,
+				52B70F35247D0949009938CC /* CollectionViewController.swift */,
+				52B70F37247D09F6009938CC /* CollectionViewCell.swift */,
+				52B70F38247D09F6009938CC /* CollectionViewCell.xib */,
+				520CE6A82502C37600AED4C1 /* DetailBookViewController.swift */,
 				522CE790246BAA9700260B57 /* Main.storyboard */,
+				526A040E246E95C70041A57A /* DonationViewController.swift */,
+				5218760E247728310087ECA0 /* SectionTableViewController.swift */,
+				52187610247728590087ECA0 /* CustomSectionTableViewCell.swift */,
+				5256D272246D20B200FF5BAE /* TableViewController.swift */,
+				52EBB33C24710ECF001A8D02 /* CustomTableViewCell.swift */,
+				529BCF2E246C26CE00477BE7 /* VideoViewController.swift */,
+				52DEBDBD24F1BA3D002652A6 /* CustomVideoViewCell.swift */,
 				522CE796246BAA9800260B57 /* Assets.xcassets */,
 				522CE798246BAA9800260B57 /* LaunchScreen.storyboard */,
 				522CE79B246BAA9800260B57 /* Info.plist */,
 				522CE793246BAA9700260B57 /* TTOLC.xcdatamodeld */,
+				529BCF2C246C1DD100477BE7 /* GoogleService-Info.plist */,
 			);
 			path = TTOLC;
 			sourceTree = "<group>";
@@ -128,6 +227,17 @@
 			path = TTOLCUITests;
 			sourceTree = "<group>";
 		};
+		529BCF29246C104C00477BE7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				523E42E125042FED00EE11B0 /* MainMenu.swift */,
+				529BCF2A246C108900477BE7 /* Post.swift */,
+				52187612247729370087ECA0 /* Section.swift */,
+				52D9E908250187EA00C4BB1B /* HorBooks.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 522CE7B4246BAA9900260B57 /* Build configuration list for PBXNativeTarget "TTOLC" */;
 			buildPhases = (
+				0FC19E37EFB242870C67F7DC /* [CP] Check Pods Manifest.lock */,
 				522CE785246BAA9700260B57 /* Sources */,
 				522CE786246BAA9700260B57 /* Frameworks */,
 				522CE787246BAA9700260B57 /* Resources */,
+				EBEDBAC78832E93E43535561 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +264,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 522CE7B7246BAA9900260B57 /* Build configuration list for PBXNativeTarget "TTOLCTests" */;
 			buildPhases = (
+				ECD6996B4DB8FFA739F2C332 /* [CP] Check Pods Manifest.lock */,
 				522CE79C246BAA9900260B57 /* Sources */,
 				522CE79D246BAA9900260B57 /* Frameworks */,
 				522CE79E246BAA9900260B57 /* Resources */,
@@ -170,9 +283,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 522CE7BA246BAA9900260B57 /* Build configuration list for PBXNativeTarget "TTOLCUITests" */;
 			buildPhases = (
+				5C753FE04DD32890D5E93A69 /* [CP] Check Pods Manifest.lock */,
 				522CE7A7246BAA9900260B57 /* Sources */,
 				522CE7A8246BAA9900260B57 /* Frameworks */,
 				522CE7A9246BAA9900260B57 /* Resources */,
+				C9E7798605B35B1C64D3F2B1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,6 +311,14 @@
 				TargetAttributes = {
 					522CE788246BAA9700260B57 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					522CE79F246BAA9900260B57 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -233,8 +356,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				522CE79A246BAA9800260B57 /* LaunchScreen.storyboard in Resources */,
+				529BCF2D246C1DD100477BE7 /* GoogleService-Info.plist in Resources */,
 				522CE797246BAA9800260B57 /* Assets.xcassets in Resources */,
 				522CE792246BAA9700260B57 /* Main.storyboard in Resources */,
+				52B70F3A247D09F6009938CC /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,14 +379,135 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0FC19E37EFB242870C67F7DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TTOLC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C753FE04DD32890D5E93A69 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TTOLC-TTOLCUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9E7798605B35B1C64D3F2B1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TTOLC-TTOLCUITests/Pods-TTOLC-TTOLCUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TTOLC-TTOLCUITests/Pods-TTOLC-TTOLCUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TTOLC-TTOLCUITests/Pods-TTOLC-TTOLCUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBEDBAC78832E93E43535561 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TTOLC/Pods-TTOLC-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TTOLC/Pods-TTOLC-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TTOLC/Pods-TTOLC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECD6996B4DB8FFA739F2C332 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TTOLCTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		522CE785246BAA9700260B57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52B70F36247D0949009938CC /* CollectionViewController.swift in Sources */,
+				5256D273246D20B200FF5BAE /* TableViewController.swift in Sources */,
+				520CE6A92502C37600AED4C1 /* DetailBookViewController.swift in Sources */,
+				529BCF2F246C26CE00477BE7 /* VideoViewController.swift in Sources */,
+				52EBB33D24710ECF001A8D02 /* CustomTableViewCell.swift in Sources */,
+				52DD106624F2436100D2AD0D /* CustomMainSectionTableViewCell.swift in Sources */,
+				52D9E909250187EA00C4BB1B /* HorBooks.swift in Sources */,
+				523E42E625043AFF00EE11B0 /* CustomFirstTypeMenuTableViewCell.swift in Sources */,
+				523E42E225042FED00EE11B0 /* MainMenu.swift in Sources */,
 				522CE78F246BAA9700260B57 /* ViewController.swift in Sources */,
 				522CE795246BAA9700260B57 /* TTOLC.xcdatamodeld in Sources */,
 				522CE78D246BAA9700260B57 /* AppDelegate.swift in Sources */,
+				529BCF2B246C108900477BE7 /* Post.swift in Sources */,
+				52B70F39247D09F6009938CC /* CollectionViewCell.swift in Sources */,
+				5218760F247728310087ECA0 /* SectionTableViewController.swift in Sources */,
+				523E42E4250438D900EE11B0 /* FirstTypeMenuViewController.swift in Sources */,
+				52187611247728590087ECA0 /* CustomSectionTableViewCell.swift in Sources */,
+				52187613247729370087ECA0 /* Section.swift in Sources */,
+				526A040F246E95C70041A57A /* DonationViewController.swift in Sources */,
+				5299C5E024F9943700E09C68 /* SecondTypeMenuViewController.swift in Sources */,
+				52DEBDBE24F1BA3D002652A6 /* CustomVideoViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,8 +680,10 @@
 		};
 		522CE7B5246BAA9900260B57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E1D800FEF1A2710A48FDFA7 /* Pods-TTOLC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TTOLC/TTOLC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3MCT36F6J9;
 				INFOPLIST_FILE = TTOLC/Info.plist;
@@ -443,7 +691,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Dowon.TTOLC;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dowon.ttolc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -452,8 +700,10 @@
 		};
 		522CE7B6246BAA9900260B57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F90DB6AA356269530E8361D6 /* Pods-TTOLC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TTOLC/TTOLC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3MCT36F6J9;
 				INFOPLIST_FILE = TTOLC/Info.plist;
@@ -461,7 +711,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Dowon.TTOLC;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dowon.ttolc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -470,6 +720,7 @@
 		};
 		522CE7B8246BAA9900260B57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3032CDC4B164EB8D31BC0F74 /* Pods-TTOLCTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -491,6 +742,7 @@
 		};
 		522CE7B9246BAA9900260B57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D678B617F06E4835A33D0F4 /* Pods-TTOLCTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +764,7 @@
 		};
 		522CE7BB246BAA9900260B57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE90471E0F65581F20D08F0D /* Pods-TTOLC-TTOLCUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -532,6 +785,7 @@
 		};
 		522CE7BC246BAA9900260B57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B3488E5540DFD8FA2CBD0D7 /* Pods-TTOLC-TTOLCUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
