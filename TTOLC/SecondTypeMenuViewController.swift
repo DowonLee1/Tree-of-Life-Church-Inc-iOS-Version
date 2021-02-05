@@ -15,6 +15,8 @@ class SecondTypeMenuViewController: UIViewController, UIScrollViewDelegate, MFMa
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet weak var secondActionButton: UIButton!
+    
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var paddingView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -51,6 +53,8 @@ class SecondTypeMenuViewController: UIViewController, UIScrollViewDelegate, MFMa
             subTitleLabel.text = "THE TREE OF LIFE CHURCH"
             image.image = UIImage(named: "about")
             actionButton.setTitle("CONTACT US", for: .normal)
+            secondActionButton.alpha = 1
+            secondActionButton.setTitle("OUR PASTOR", for: .normal)
             sinceLabel.text = "SINCE 2016 04 17"
             textViewLabel.text = "The Tree of Life Church was founded upon on the faith ideology of Reverend Abraham Park with the mission of spreading the gospel of the cross, the Word of redemptive history, to all nations. The Tree of Life Church embraces all races, languages, and cultures, as one body of Christ. Our mission statement focuses on world missions by obeying the Word of Jesus Christ to make disciples of all nations so that they may return dancing to the Lord. The Tree of Life Church breaks away from the fixed formalities and habits of the standard church and works with all congregation members to serve the church with their individual talents and passion. We aim to fulfill the vision of the current times and the ultimate vision of the Bible, which is the history of redemption."
         }
@@ -67,6 +71,8 @@ class SecondTypeMenuViewController: UIViewController, UIScrollViewDelegate, MFMa
             subTitleLabel.text = "BY REV. DR. ABRAHAM PARK"
             image.image = UIImage(named: "histBooks")
             actionButton.setTitle("ABOUT BOOKS", for: .normal)
+            secondActionButton.alpha = 1
+            secondActionButton.setTitle("AUTHOR", for: .normal)
             sinceLabel.text = "SINCE 2007 10 27"
             textViewLabel.text = "In 2007, Reverend Abraham Park, the founder of Pyungkang Cheil Presbyterian Church published the first volume of the The History of Redemption series. The series sold more than 450,000, making an unprecedented record for biblical research books. What also surprised many was that the English version of the series (from volume 1 to 5 currently) also sold 30,0000 copies on Amazon.com, the largest online bookstore, and in Barnes& Noble which holds the largest bookstore network in the United States. The series has been translated not only in English but also in Chinese, Japanese, Hebrew, Spanish and Indonesian. The seminars on The History of Redemption Series took place in over 20 countries around the world."
         }
@@ -100,6 +106,9 @@ class SecondTypeMenuViewController: UIViewController, UIScrollViewDelegate, MFMa
            (navigationController?.navigationBar.frame.height ?? 0.0)
         actionButton.layer.borderWidth = 1
         actionButton.layer.borderColor = UIColor.black.cgColor
+        secondActionButton.layer.borderWidth = 1
+        secondActionButton.layer.borderWidth = 1
+        secondActionButton.alpha = 0
         
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -233,6 +242,16 @@ class SecondTypeMenuViewController: UIViewController, UIScrollViewDelegate, MFMa
         }
     }
     
+    @IBAction func secondActionButtonClicked(_ sender: UIButton) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DetailBookViewController") as? DetailBookViewController else {
+            return
+        }
+        vc.passedViewController = passedSectionTitle
+        AudioServicesPlaySystemSound(1519)
+        present(vc, animated: true)
+    }
+    
+    
     @IBAction func shareButtonClicked(_ sender: UIButton) {
         if passedSectionTitle == "ABOUT US" {
             shareButtonUrl = "http://nytreeoflife.com/"
@@ -247,7 +266,6 @@ class SecondTypeMenuViewController: UIViewController, UIScrollViewDelegate, MFMa
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
         AudioServicesPlaySystemSound(1519)
-        
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
