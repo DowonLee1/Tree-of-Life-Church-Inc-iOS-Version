@@ -22,6 +22,8 @@ class DetailBookViewController: UIViewController, MFMailComposeViewControllerDel
     var passedHorBooks = [HorBooks]()
     var passedIndex = 0
     
+    var passedViewController = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutSetUp()
@@ -29,12 +31,35 @@ class DetailBookViewController: UIViewController, MFMailComposeViewControllerDel
     }
     
     private func changableObjects() {
-        let url = URL(string: "https://drive.google.com/uc?export=view&id=\(passedHorBooks[passedIndex].image2Url)")
-        image.loadImage(from: url!)
-    
-        titleLabel.text = passedHorBooks[passedIndex].bookTitle
-        detailLabel.text = passedHorBooks[passedIndex].detailTitle
-        descriptionTextView.text = passedHorBooks[passedIndex].description
+        if passedViewController == "ABOUT US" {
+            let url = URL(string: "https://drive.google.com/uc?export=view&id=\("1L-Rk_oHKz6YXItFjOwvwwSn94Jv2ypBj")")
+            image.loadImage(from: url!)
+            
+            titleLabel.text = "REV.JOHN LEE"
+            detailLabel.text = "이은식 목사님"
+            buyingButton.setTitle("LEAD PASTOR", for: .normal)
+            buyingButton.isEnabled = false
+        }
+       
+        else if passedViewController == "HISTORY OF REDEMPTION" {
+            let url = URL(string: "https://drive.google.com/uc?export=view&id=\("12m6LNmw6s7Nq63-W9tD3loH_jUxoeDp_")")
+            image.loadImage(from: url!)
+            
+            titleLabel.text = "REV.DR.ABRAHAM PARK"
+            detailLabel.text = "박윤식 원로목사님"
+            buyingButton.setTitle("AUTHOR", for: .normal)
+            buyingButton.isEnabled = false
+        }
+        
+        else {
+            let url = URL(string: "https://drive.google.com/uc?export=view&id=\(passedHorBooks[passedIndex].image2Url)")
+            image.loadImage(from: url!)
+        
+            titleLabel.text = passedHorBooks[passedIndex].bookTitle
+            detailLabel.text = passedHorBooks[passedIndex].detailTitle
+            descriptionTextView.text = passedHorBooks[passedIndex].description
+        }
+        
     }
     
     private func layoutSetUp() {
