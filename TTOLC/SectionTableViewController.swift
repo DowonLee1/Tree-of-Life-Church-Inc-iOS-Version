@@ -27,6 +27,11 @@ class SectionTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        layoutSetUp()
+        loadPosts()
+    }
+
+    private func layoutSetUp() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.isNavigationBarHidden = false
         tableView.delegate = self
@@ -34,9 +39,6 @@ class SectionTableViewController: UITableViewController {
         tableView.refreshControl = refresher
         spinner.startAnimating()
         tableView.backgroundView = spinner
-        loadPosts()
-        
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.title = "SECTION"
     }
@@ -55,8 +57,8 @@ class SectionTableViewController: UITableViewController {
             print(Thread.isMainThread)
             if let dict = snapshot.value as? [String: Any] {
                 let sectionTitle = dict["sectionTitle"] as! String
-                let imageUrl = dict["imageUrl"] as! String
-                let section = Section(sectionTitle: sectionTitle, imageUrl: imageUrl)
+                let detailSection = dict["detailSection"] as! Int
+                let section = Section(sectionTitle: sectionTitle, detailSectionTitle: detailSection)
                 self.sections.append(section)
                 self.mainView.insertRows(at: [IndexPath(row: self.sections.count-1, section: 0)], with: UITableView.RowAnimation.automatic)
                 //                self.tableView.reloadData()
@@ -71,10 +73,7 @@ class SectionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCell") as! CustomSectionTableViewCell
-        //let cell = UITableViewCell()
         cell.sectionLable.text = sections[indexPath.row].section
-//        let image = UIImage(named: sections[indexPath.row].image)
-//        cell.sectionTitleWithImage.setImage(image, for: .normal)
         return cell
     }
     
@@ -83,19 +82,19 @@ class SectionTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //tableView.deselectRow(at: indexPath, animated: true)
-        let vc = storyboard?.instantiateViewController(withIdentifier: "TableViewController") as? TableViewController
-        vc?.passedParentSection = passedSection
-        vc?.passedSection = sections[indexPath.row].section
-        AudioServicesPlaySystemSound(1519)
-        self.navigationController?.pushViewController(vc!, animated: true)
-        //performSegue(withIdentifier: "show", sender: self)
+        if sections[indexPath.row].detailSection == 0 {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "TableViewController") as? TableViewController
+            vc?.passedParentSection = passedSection
+            vc?.passedSection = sections[indexPath.row].section
+            AudioServicesPlaySystemSound(1519)
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+        else {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "DetailSectionTableViewController") as? DetailSectionTableViewController
+            vc?.passedParentSection = passedSection
+            vc?.passedSection = sections[indexPath.row].section
+            AudioServicesPlaySystemSound(1519)
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
     }
-    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //if segue.identifier == "show" {
-    //let webViewVC = segue.destination as! WebViewController
-    //webViewVC.label.text = "Hello"
-    
-    //}
-    //}
 }
