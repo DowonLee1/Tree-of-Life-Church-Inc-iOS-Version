@@ -183,7 +183,7 @@ class DonationViewController: UIViewController, UITextFieldDelegate, MFMailCompo
                 
                 if amt > 1000 {
                     let alert = UIAlertController(title: "Exceeding one time payment limit ($1.000.00)", message: nil, preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "Done", style: UIAlertAction.Style.default, handler: nil))
                     alert.view.tintColor = UIColor.black
                     present(alert, animated: true, completion: nil)
                     textField.text = ""
