@@ -17,11 +17,14 @@ class SecondTypeMenuViewController: UIViewController, UIScrollViewDelegate, MFMa
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var secondActionButton: UIButton!
     
+    @IBOutlet weak var shareButtonImage: UIImageView!
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var paddingView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var languageSegment: UISegmentedControl!
     @IBOutlet weak var textViewLabel: UITextView!
     @IBOutlet weak var sinceLabel: UILabel!
     
@@ -100,7 +103,14 @@ class SecondTypeMenuViewController: UIViewController, UIScrollViewDelegate, MFMa
         image.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         image.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         image.heightAnchor.constraint(equalToConstant: CGFloat(Int(view.frame.size.height / 1.28))).isActive = true
-//        image.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        
+        shareButtonImage.frame.size.height = 14
+        shareButtonImage.frame.size.width = 13
+        shareButton.center = shareButtonImage.center
+        shareButton.frame.size.height = 30
+        shareButton.frame.size.width = 30
+        
+        
         
         let navBarHeight = statusBarHeight +
            (navigationController?.navigationBar.frame.height ?? 0.0)
@@ -144,6 +154,12 @@ class SecondTypeMenuViewController: UIViewController, UIScrollViewDelegate, MFMa
         paddingView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         paddingView.heightAnchor.constraint(equalToConstant: CGFloat(view.frame.size.height / 1.628)).isActive = true
         
+        textViewLabel.translatesAutoresizingMaskIntoConstraints = false
+        textViewLabel.topAnchor.constraint(equalTo: languageSegment.bottomAnchor , constant: 10).isActive = true
+        textViewLabel.leftAnchor.constraint(equalTo: languageSegment.leftAnchor).isActive = true
+        textViewLabel.rightAnchor.constraint(equalTo: languageSegment.rightAnchor).isActive = true
+        textViewLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
         navBackground.backgroundColor = .white
         navBackground.frame.size.width = view.frame.size.width
         navBackground.frame.size.height = navBarHeight
@@ -174,7 +190,7 @@ class SecondTypeMenuViewController: UIViewController, UIScrollViewDelegate, MFMa
         }
         else if sender.selectedSegmentIndex == 1 {
             if passedIndex == 1 {
-                textViewLabel.text = "생명 나무 교회는 십자가의 복음, 구속사 말씀을 모든 민족에 전파한다는 사명으로 박 아브라함 목사의 신앙 이념을 바탕으로 설립되었습니다. 생명 나무 교회는 모든 인종, 언어, 문화를 그리스도의 한 몸으로 받아들입니다. 우리의 사명 선언문은 예수 그리스도의 말씀에 순종하여 모든 민족의 제자를 삼아 주님 께 춤을 추도록함으로써 세계 선교에 초점을 맞추고 있습니다. 생명 나무 교회는 표준 교회의 고정 된 형식과 습관에서 벗어나 모든 성도들과 협력하여 각자의 재능과 열정으로 교회를 섬기고 있습니다. 구속의 역사 인 성경의 현재 비전과 궁극적 인 비전을 성취하고자합니다."
+                textViewLabel.text = "생명 나무 교회는 십자가의 복음, 구속사 말씀을 모든 민족에 전파한다는 사명으로 박 아브라함 목사의 신앙 이념을 바탕으로 설립되었습니다. 생명 나무 교회는 모든 인종, 언어, 문화를 그리스도의 한 몸으로 받아들입니다. 우리의 사명 선언문은 예수 그리스도의 말씀에 순종하여 모든 민족의 제자를 삼아 주님 께 춤을 추도록함으로써 세계 선교에 초점을 맞추고 있습니다. 생명 나무 교회는 표준 교회의 고정 된 형식과 습관에서 벗어나 모든 성도들과 협력하여 각자의 재능과 열정으로 교회를 섬기고 있습니다. 구속의 역사 인 성경의 현재 비전과 궁극적 인 비전을 성취하고자합니다. 생명 나무 교회는 십자가의 복음, 구속사 말씀을 모든 민족에 전파한다는 사명으로 박 아브라함 목사의 신앙 이념을 바탕으로 설립되었습니다. 생명 나무 교회는 모든 인종, 언어, 문화를 그리스도의 한 몸으로 받아들입니다. 우리의 사명 선언문은 예수 그리스도의 말씀에 순종하여 모든 민족의 제자를 삼아 주님 께 춤을 추도록함으로써 세계 선교에 초점을 맞추고 있습니다. 생명 나무 교회는 표준 교회의 고정 된 형식과 습관에서 벗어나 모든 성도들과 협력하여 각자의 재능과 열정으로 교회를 섬기고 있습니다. 구속의 역사 인 성경의 현재 비전과 궁극적 인 비전을 성취하고자합니다.생명 나무 교회는 십자가의 복음, 구속사 말씀을 모든 민족에 전파한다는 사명으로 박 아브라함 목사의 신앙 이념을 바탕으로 설립되었습니다. 생명 나무 교회는 모든 인종, 언어, 문화를 그리스도의 한 몸으로 받아들입니다. 우리의 사명 선언문은 예수 그리스도의 말씀에 순종하여 모든 민족의 제자를 삼아 주님 께 춤을 추도록함으로써 세계 선교에 초점을 맞추고 있습니다. 생명 나무 교회는 표준 교회의 고정 된 형식과 습관에서 벗어나 모든 성도들과 협력하여 각자의 재능과 열정으로 교회를 섬기고 있습니다. 구속의 역사 인 성경의 현재 비전과 궁극적 인 비전을 성취하고자합니다.생명 나무 교회는 십자가의 복음, 구속사 말씀을 모든 민족에 전파한다는 사명으로 박 아브라함 목사의 신앙 이념을 바탕으로 설립되었습니다. 생명 나무 교회는 모든 인종, 언어, 문화를 그리스도의 한 몸으로 받아들입니다. 우리의 사명 선언문은 예수 그리스도의 말씀에 순종하여 모든 민족의 제자를 삼아 주님 께 춤을 추도록함으로써 세계 선교에 초점을 맞추고 있습니다. 생명 나무 교회는 표준 교회의 고정 된 형식과 습관에서 벗어나 모든 성도들과 협력하여 각자의 재능과 열정으로 교회를 섬기고 있습니다. 구속의 역사 인 성경의 현재 비전과 궁극적 인 비전을 성취하고자합니다.생명 나무 교회는 십자가의 복음, 구속사 말씀을 모든 민족에 전파한다는 사명으로 박 아브라함 목사의 신앙 이념을 바탕으로 설립되었습니다. 생명 나무 교회는 모든 인종, 언어, 문화를 그리스도의 한 몸으로 받아들입니다. 우리의 사명 선언문은 예수 그리스도의 말씀에 순종하여 모든 민족의 제자를 삼아 주님 께 춤을 추도록함으로써 세계 선교에 초점을 맞추고 있습니다. 생명 나무 교회는 표준 교회의 고정 된 형식과 습관에서 벗어나 모든 성도들과 협력하여 각자의 재능과 열정으로 교회를 섬기고 있습니다. 구속의 역사 인 성경의 현재 비전과 궁극적 인 비전을 성취하고자합니다.생명 나무 교회는 십자가의 복음, 구속사 말씀을 모든 민족에 전파한다는 사명으로 박 아브라함 목사의 신앙 이념을 바탕으로 설립되었습니다. 생명 나무 교회는 모든 인종, 언어, 문화를 그리스도의 한 몸으로 받아들입니다. 우리의 사명 선언문은 예수 그리스도의 말씀에 순종하여 모든 민족의 제자를 삼아 주님 께 춤을 추도록함으로써 세계 선교에 초점을 맞추고 있습니다. 생명 나무 교회는 표준 교회의 고정 된 형식과 습관에서 벗어나 모든 성도들과 협력하여 각자의 재능과 열정으로 교회를 섬기고 있습니다. 구속의 역사 인 성경의 현재 비전과 궁극적 인 비전을 성취하고자합니다.생명 나무 교회는 십자가의 복음, 구속사 말씀을 모든 민족에 전파한다는 사명으로 박 아브라함 목사의 신앙 이념을 바탕으로 설립되었습니다. 생명 나무 교회는 모든 인종, 언어, 문화를 그리스도의 한 몸으로 받아들입니다. 우리의 사명 선언문은 예수 그리스도의 말씀에 순종하여 모든 민족의 제자를 삼아 주님 께 춤을 추도록함으로써 세계 선교에 초점을 맞추고 있습니다. 생명 나무 교회는 표준 교회의 고정 된 형식과 습관에서 벗어나 모든 성도들과 협력하여 각자의 재능과 열정으로 교회를 섬기고 있습니다. 구속의 역사 인 성경의 현재 비전과 궁극적 인 비전을 성취하고자합니다.생명 나무 교회는 십자가의 복음, 구속사 말씀을 모든 민족에 전파한다는 사명으로 박 아브라함 목사의 신앙 이념을 바탕으로 설립되었습니다. 생명 나무 교회는 모든 인종, 언어, 문화를 그리스도의 한 몸으로 받아들입니다. 우리의 사명 선언문은 예수 그리스도의 말씀에 순종하여 모든 민족의 제자를 삼아 주님 께 춤을 추도록함으로써 세계 선교에 초점을 맞추고 있습니다. 생명 나무 교회는 표준 교회의 고정 된 형식과 습관에서 벗어나 모든 성도들과 협력하여 각자의 재능과 열정으로 교회를 섬기고 있습니다. 구속의 역사 인 성경의 현재 비전과 궁극적 인 비전을 성취하고자합니다.생명 나무 교회는 십자가의 복음, 구속사 말씀을 모든 민족에 전파한다는 사명으로 박 아브라함 목사의 신앙 이념을 바탕으로 설립되었습니다. 생명 나무 교회는 모든 인종, 언어, 문화를 그리스도의 한 몸으로 받아들입니다. 우리의 사명 선언문은 예수 그리스도의 말씀에 순종하여 모든 민족의 제자를 삼아 주님 께 춤을 추도록함으로써 세계 선교에 초점을 맞추고 있습니다. 생명 나무 교회는 표준 교회의 고정 된 형식과 습관에서 벗어나 모든 성도들과 협력하여 각자의 재능과 열정으로 교회를 섬기고 있습니다. 구속의 역사 인 성경의 현재 비전과 궁극적 인 비전을 성취하고자합니다.생명 나무 교회는 십자가의 복음, 구속사 말씀을 모든 민족에 전파한다는 사명으로 박 아브라함 목사의 신앙 이념을 바탕으로 설립되었습니다. 생명 나무 교회는 모든 인종, 언어, 문화를 그리스도의 한 몸으로 받아들입니다. 우리의 사명 선언문은 예수 그리스도의 말씀에 순종하여 모든 민족의 제자를 삼아 주님 께 춤을 추도록함으로써 세계 선교에 초점을 맞추고 있습니다. 생명 나무 교회는 표준 교회의 고정 된 형식과 습관에서 벗어나 모든 성도들과 협력하여 각자의 재능과 열정으로 교회를 섬기고 있습니다. 구속의 역사 인 성경의 현재 비전과 궁극적 인 비전을 성취하고자합니다.생명 나무 교회는 십자가의 복음, 구속사 말씀을 모든 민족에 전파한다는 사명으로 박 아브라함 목사의 신앙 이념을 바탕으로 설립되었습니다. 생명 나무 교회는 모든 인종, 언어, 문화를 그리스도의 한 몸으로 받아들입니다. 우리의 사명 선언문은 예수 그리스도의 말씀에 순종하여 모든 민족의 제자를 삼아 주님 께 춤을 추도록함으로써 세계 선교에 초점을 맞추고 있습니다. 생명 나무 교회는 표준 교회의 고정 된 형식과 습관에서 벗어나 모든 성도들과 협력하여 각자의 재능과 열정으로 교회를 섬기고 있습니다. 구속의 역사 인 성경의 현재 비전과 궁극적 인 비전을 성취하고자합니다."
             }
             if passedIndex == 3 {
                 textViewLabel.text = "2007년 평강 제일 장로 교회 창립자인 박 아브라함 목사는 구속사 시리즈 1권을 발간했다. 이 시리즈는 45만개가 넘는 판매량으로 성경 연구 서적에 전례없는 기록을 세웠습니다. 또한 많은 사람들이 놀란것은 이 시리즈의 영어 버전 (현재 1 권에서 5 권까지)이 ​​최대 온라인 서점 인 Amazon.com과 미국 최대 서점 네트워크를 보유한 Barnes & Noble에서 30,0000 부를 판매했다는 것입니다. 이 시리즈는 영어뿐만 아니라 중국어, 일본어, 히브리어, 스페인어 및 인도네시아어로도 번역되었습니다. The History of Redemption Series에 대한 세미나는 전 세계 20여 개국에서 열렸습니다."
@@ -279,15 +295,34 @@ class SecondTypeMenuViewController: UIViewController, UIScrollViewDelegate, MFMa
     }
     
     private func sendEmail() {
-        let composeVC = MFMailComposeViewController()
-        composeVC.mailComposeDelegate = self
-        // Configure the fields of the interface.
-        composeVC.setToRecipients(["info.ttolc@gmail.com"])
-        composeVC.setSubject("Request")
-        composeVC.setMessageBody("Hello Tree of life church, ", isHTML: false)
-        // Present the view controller modally.
-        self.present(composeVC, animated: true, completion: nil)
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["info.ttolc@gmail.com"])
+            mail.setSubject("Request")
+            mail.setMessageBody("Hello Tree of life church, ", isHTML: true)
+
+            present(mail, animated: true)
+        } else {
+            let alert = UIAlertController(title: "Setup Your Email on Mail App", message: nil, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Done", style: UIAlertAction.Style.default, handler: nil))
+            alert.view.tintColor = UIColor.black
+            present(alert, animated: true, completion: nil)
+        }
     }
+    
+    
+    
+//    private func sendEmail() {
+//        let composeVC = MFMailComposeViewController()
+//        composeVC.mailComposeDelegate = self
+//        // Configure the fields of the interface.
+//        composeVC.setToRecipients(["info.ttolc@gmail.com"])
+//        composeVC.setSubject("Request")
+//        composeVC.setMessageBody("Hello Tree of life church, ", isHTML: false)
+//        // Present the view controller modally.
+//        self.present(composeVC, animated: true, completion: nil)
+//    }
 
     private func mailComposeController(controller: MFMailComposeViewController,
                            didFinishWithResult result: MFMailComposeResult, error: NSError?) {
@@ -295,4 +330,12 @@ class SecondTypeMenuViewController: UIViewController, UIScrollViewDelegate, MFMa
     }
 }
 
+extension SecondTypeMenuViewController: UITextViewDelegate {
 
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+        }
+        return true
+    }
+}
