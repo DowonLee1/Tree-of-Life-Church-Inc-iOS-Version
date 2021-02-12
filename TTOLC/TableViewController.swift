@@ -142,33 +142,18 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searching {
+        if posts.isEmpty {
+            spinner.stopAnimating()
+            return 0
+        }
+        
+        else if searching {
             return filteredArray.count
         }
         else {
             return posts.count
         }
     }
-//    func showVideo() {
-//        if let keyWindow = UIApplication.shared.keyWindow {
-//            videoView.frame = CGRect(x: keyWindow.frame.width - 10, y: keyWindow.frame.height - 10, width: 10, height: 10)
-//            keyWindow.addSubview(videoView)
-//            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut ,animations: {
-//                self.videoView.frame = keyWindow.frame
-//            }, completion: { (completedAnimation) in
-//
-//            })
-//        }
-//    }
-
-//    @IBAction func buttonClicked(_ sender: Any) {
-//        if let keyWindow = UIApplication.shared.keyWindow {
-//            UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut ,animations: {
-//            self.videoView.frame = CGRect(x: keyWindow.frame.width - 160, y: keyWindow.frame.height - 120, width: 156, height: 90)
-//            }, completion: { (completedAnimation) in
-//            })
-//        }
-//    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        tableView.deselectRow(at: indexPath, animated: true)
@@ -208,13 +193,6 @@ class TableViewController: UITableViewController {
 //        self.navigationController?.pushViewController(vc, animated: true)
         present(vc, animated: true)
     }
-    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //if segue.identifier == "show" {
-            //let webViewVC = segue.destination as! WebViewController
-            //webViewVC.label.text = "Hello"
-            
-        //}
-    //}
 }
 
 extension TableViewController: UISearchBarDelegate {
@@ -228,9 +206,6 @@ extension TableViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        search = posts.filter({$0.prefix(searchText.count) == searchText})
-//        search = test.filter({$0.prefix(searchText.count) == searchText})
-//        filteredArray = posts.filter { $0.caption.prefix(searchText.count) == searchText }
         filteredArray = posts.filter { ($0.title.lowercased().contains(searchText.lowercased())) || ($0.bibleVerse.lowercased().contains(searchText.lowercased())) || ($0.pastorName.lowercased().contains(searchText.lowercased())) || ($0.date.lowercased().contains(searchText.lowercased()))}
         searching = true
         tableView.reloadData()
@@ -248,52 +223,19 @@ extension TableViewController: UISearchBarDelegate {
     }
 }
 
-//extension UIImageView {
-//    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
-//        contentMode = mode
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            guard
-//                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-//                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-//                let data = data, error == nil,
-//                let image = UIImage(data: data)
-//                else { return }
-//            DispatchQueue.main.async() {
-//                self.image = image
-//            }
-//            }.resume()
-//    }
-//
-//    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
-//        guard let url = URL(string: link) else { return }
-//        downloaded(from: url, contentMode: mode)
-//    }
-//}
-
-
-
 let imageCache = NSCache<AnyObject, AnyObject>()
 var task: URLSessionTask!
 var spinner = UIActivityIndicatorView(style: .gray)
 
 extension UIImageView {
     func loadImage(from url: URL) {
-        
-        
         image = nil
-        
         addSpinner()
-        
-//        if let task = task {
-//            task.cancel()
-//        }
-        
         if let imageFromCache = imageCache.object(forKey: url.absoluteString as AnyObject) as? UIImage {
             image = imageFromCache
             removeSpinner()
             return
         }
-        
         task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard
                 let data = data,
