@@ -17,6 +17,8 @@ class VideoViewController: UIViewController, YTPlayerViewDelegate, UITableViewDe
     
 
     @IBOutlet var mainView: UIView!
+    @IBOutlet weak var shareButtonImage: UIImageView!
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bibleVerseLabel: UILabel!
     @IBOutlet weak var pastorNameLabel: UILabel!
@@ -71,6 +73,23 @@ class VideoViewController: UIViewController, YTPlayerViewDelegate, UITableViewDe
     private func layoutSetUp() {
         let screenSize: CGRect = UIScreen.main.bounds
         let screenWidth = screenSize.width
+        
+        if view.frame.size.height <= view.frame.size.width * 2{
+            print("screen ratio is 16:9 as iphone 8")
+            shareButtonImage.frame.size.height = 12
+            shareButtonImage.frame.size.width = 13
+        }
+        // if screen ratio is 21:9
+        else if view.frame.size.height >= view.frame.size.width * 2{
+            print("screen ratio is 21:9 as iphone x")
+            shareButtonImage.frame.size.height = 13
+            shareButtonImage.frame.size.width = 13
+        }
+        
+        // for better touch response, separate image and button then make button size bigger than image.
+        shareButton.center = shareButtonImage.center
+        shareButton.frame.size.height = 30
+        shareButton.frame.size.width = 30
         
         donationView.translatesAutoresizingMaskIntoConstraints = false
         donationView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40).isActive = true
