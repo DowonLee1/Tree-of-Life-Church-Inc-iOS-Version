@@ -109,7 +109,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegat
         self.navigationController!.navigationBar.isTranslucent = true
         
 //        navigation font change
-        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "GillSans-Bold", size: 16)!]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "GillSans-SemiBold", size: 16)!]
 
 //        // Bluring Navigation Bar
 //        navigationController?.navigationBar.installBlurEffect()
@@ -215,7 +215,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegat
         button6.layer.masksToBounds = true
         backButtonView.layer.cornerRadius = button1.frame.size.height / 2
         backButtonView.layer.masksToBounds = true
-        
     }
 
     
@@ -260,9 +259,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegat
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 0 {
-            guard let vc = storyboard?.instantiateViewController(withIdentifier: "FirstTypeMenuViewController") as? FirstTypeMenuViewController else {
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "SectionTableViewController") as? SectionTableViewController else {
                         return
             }
+            vc.passedSection = "liveTranslation"
             AudioServicesPlaySystemSound(1519)
             self.navigationController?.pushViewController(vc, animated: true)
             
