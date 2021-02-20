@@ -10,12 +10,11 @@ import UIKit
 import CoreData
 import youtube_ios_player_helper
 import AudioToolbox
+import MediaPlayer
 import PassKit
 
 class VideoViewController: UIViewController, YTPlayerViewDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    
-
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var shareButtonImage: UIImageView!
     @IBOutlet weak var shareButton: UIButton!
@@ -49,38 +48,27 @@ class VideoViewController: UIViewController, YTPlayerViewDelegate, UITableViewDe
     var passedIndex = 0
     var passedPost = [Post]()
     var keyboardOn = false
-    var mediaView: UIView!
+    var toggleSwitch = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        ConfiguretapGesture()
         layoutSetUp()
         toolBarSetUp()
         applePaySetUp()
-        
-//        mediaView = UIView(frame: CGRect(x: 0, y: self.view.frame.height - 100 - (UIApplication.shared.keyWindow?.safeAreaInsets.bottom)!, width: self.view.frame.width, height: 70))
-//        self.view.addSubview(mediaView!)
-//   
-//        sessionManager = GCKCastContext.sharedInstance().sessionManager
-//        let castContext = GCKCastContext.sharedInstance()
-//        sessionManager.add(self)
-//        miniMediaControlsViewController = castContext.createMiniMediaControlsViewController()
-//        miniMediaControlsViewController.delegate = self
-//        updateControlBarsVisibility(shouldAppear: true)
-//        installViewController(miniMediaControlsViewController, inContainerView: mediaView!)
+        MPVolumeView.setVolume(0.7)
     }
-    
+
     private func layoutSetUp() {
         let screenSize: CGRect = UIScreen.main.bounds
         let screenWidth = screenSize.width
         
-        if view.frame.size.height <= view.frame.size.width * 2{
+        if view.frame.size.height <= view.frame.size.width * 2 {
             print("screen ratio is 16:9 as iphone 8")
             shareButtonImage.frame.size.height = 12
             shareButtonImage.frame.size.width = 13
         }
         // if screen ratio is 21:9
-        else if view.frame.size.height >= view.frame.size.width * 2{
+        else if view.frame.size.height >= view.frame.size.width * 2 {
             print("screen ratio is 21:9 as iphone x")
             shareButtonImage.frame.size.height = 13
             shareButtonImage.frame.size.width = 13
@@ -207,6 +195,7 @@ class VideoViewController: UIViewController, YTPlayerViewDelegate, UITableViewDe
         bibleVerseLabel.text = passedPost[indexPath.row].bibleVerse
         pastorNameLabel.text = passedPost[indexPath.row].pastorName
         dateLabel.text = passedPost[indexPath.row].date
+        dateLabel.textColor = .black
         AudioServicesPlaySystemSound(1519)
     
         self.nextVideoTableTitleLabel.alpha = 0
@@ -233,6 +222,28 @@ class VideoViewController: UIViewController, YTPlayerViewDelegate, UITableViewDe
         videoView.playVideo()
     }
     
+    // check the live status
+    func playerView(_ playerView: YTPlayerView, didPlayTime playTime: Float) {
+        playerView.duration { (duration, error) in
+            print("time: \(playTime) duration: \(duration)")
+            if (duration == 0.0 || duration == 15.0){
+                if self.toggleSwitch == false {
+//                    print("It is live")
+                    self.dateLabel.text = "LIVE STREAMING"
+                    self.dateLabel.textColor = UIColor(red: 225/255, green: 0/255, blue: 0/255, alpha: 1.0)
+                    self.dateLabel.alpha = 0
+                    UIView.animate(withDuration: 1) {
+                        self.dateLabel.alpha = 1
+                    }
+                    self.toggleSwitch = true
+                }
+            }
+            else {
+//                print("It is not live")
+            }
+        }
+    }
+
     @IBAction func offeringButtonClicked(_ sender: UIButton) {
         // Change Autroresizing Property for animating scroll content offset
         donationView.translatesAutoresizingMaskIntoConstraints = true
@@ -298,7 +309,6 @@ class VideoViewController: UIViewController, YTPlayerViewDelegate, UITableViewDe
         if textField == amountTextField{
                     if let digit = Int(string) {
                         amt = amt * 10 + digit
-                        
                         if amt > 1000 {
                             let alert = UIAlertController(title: "Exceeding one time payment limit ($1.000.00)", message: nil, preferredStyle: UIAlertController.Style.alert)
                             alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
@@ -314,7 +324,6 @@ class VideoViewController: UIViewController, YTPlayerViewDelegate, UITableViewDe
                 else {
                     return true
                 }
-                
         //        if string == "" {
         //            amt = amt/10
         //            textField.text = updateAmount()
