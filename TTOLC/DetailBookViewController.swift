@@ -17,7 +17,6 @@ class DetailBookViewController: UIViewController, MFMailComposeViewControllerDel
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var shareButtonImage: UIImageView!
-    
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var languageSegment: UISegmentedControl!
     @IBOutlet weak var buyingButton: UIButton!
