@@ -9,8 +9,10 @@
 import UIKit
 import Firebase
 import AudioToolbox
+import MediaPlayer
 
 class TableViewController: UITableViewController {
+    
     @IBOutlet var mainView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -36,7 +38,6 @@ class TableViewController: UITableViewController {
         toolBarSetUp()
         loadPosts()
         tableView.reloadData()
-        
     }
     
     private func toolBarSetUp() {
@@ -50,6 +51,7 @@ class TableViewController: UITableViewController {
     }
     
     private func layoutSetUp() {
+        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.title = "SERMONS"
@@ -66,6 +68,8 @@ class TableViewController: UITableViewController {
         searching = false
         searchBar.text = ""
         tableView.reloadData()
+        
+        
     }
     
     @objc func requestData() {
@@ -125,7 +129,6 @@ class TableViewController: UITableViewController {
         else {
             let url = URL(string: "https://drive.google.com/uc?export=view&id=\(posts[indexPath.row].imageUrl)")
             cell.thumbnailImage.loadImage(from: url!)
-            
             cell.titleLabel.text = posts[indexPath.row].title
             cell.bibleVerseLabel.text = posts[indexPath.row].bibleVerse
             cell.pastorNameLabel.text = posts[indexPath.row].pastorName
@@ -157,7 +160,6 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        tableView.deselectRow(at: indexPath, animated: true)
-        
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "VideoViewController") as? VideoViewController else {
             return
         }
