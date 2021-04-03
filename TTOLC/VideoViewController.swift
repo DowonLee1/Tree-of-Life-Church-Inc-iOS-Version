@@ -133,6 +133,14 @@ class VideoViewController: UIViewController, YTPlayerViewDelegate, UITableViewDe
         pastorNameLabel.text = passedPastorName
         dateLabel.text = passedDate
         
+        // check the label line for proper layout
+        if countLabelLines(label: titleLabel) == 2 {
+            bibleVerseLabel.text = ""
+        }
+        else {
+            titleLabel.text = passedCaption + "\n"
+        }
+        
         while (counter < passedIndex + 1) {
             passedPost.remove(at: 0)
             counter += 1
@@ -172,6 +180,16 @@ class VideoViewController: UIViewController, YTPlayerViewDelegate, UITableViewDe
         
     }
     
+    func countLabelLines(label: UILabel) -> Int {
+        // Call self.layoutIfNeeded() if your view uses auto layout
+        let myText = label.text! as NSString
+
+        let rect = CGSize(width: label.bounds.width, height: CGFloat.greatestFiniteMagnitude)
+        let labelSize = myText.boundingRect(with: rect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: label.font!], context: nil)
+
+        return Int(ceil(CGFloat(labelSize.height) / label.font.lineHeight))
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = nextVideoTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomVideoViewCell
@@ -181,6 +199,14 @@ class VideoViewController: UIViewController, YTPlayerViewDelegate, UITableViewDe
         cell.bibleVerseLabel.text = passedPost[indexPath.row].bibleVerse
         cell.pastorNameLabel.text = passedPost[indexPath.row].pastorName
         cell.dateLabel.text = passedPost[indexPath.row].date
+        
+        // check the label line for proper layout
+        if countLabelLines(label: cell.titleLabel) == 2 {
+            cell.bibleVerseLabel.text = ""
+        }
+        else {
+            cell.titleLabel.text = passedPost[indexPath.row].title + "\n"
+        }
         return cell
     }
     
@@ -195,6 +221,15 @@ class VideoViewController: UIViewController, YTPlayerViewDelegate, UITableViewDe
         bibleVerseLabel.text = passedPost[indexPath.row].bibleVerse
         pastorNameLabel.text = passedPost[indexPath.row].pastorName
         dateLabel.text = passedPost[indexPath.row].date
+        
+        // check the label line for proper layout
+        if countLabelLines(label: titleLabel) == 2 {
+            bibleVerseLabel.text = ""
+        }
+        else {
+            titleLabel.text = passedPost[indexPath.row].title + "\n"
+        }
+        
         dateLabel.textColor = .black
         AudioServicesPlaySystemSound(1519)
     
@@ -245,6 +280,7 @@ class VideoViewController: UIViewController, YTPlayerViewDelegate, UITableViewDe
     }
 
     @IBAction func offeringButtonClicked(_ sender: UIButton) {
+        AudioServicesPlaySystemSound(1519)
         // Change Autroresizing Property for animating scroll content offset
         donationView.translatesAutoresizingMaskIntoConstraints = true
         UIView.animate(withDuration: 0.5) {
@@ -259,6 +295,7 @@ class VideoViewController: UIViewController, YTPlayerViewDelegate, UITableViewDe
     
     
     @IBAction func backButtonClicked(_ sender: UIButton) {
+        AudioServicesPlaySystemSound(1519)
         nameTextField.text = ""
         typeTextField.text = ""
         amountTextField.text = ""
