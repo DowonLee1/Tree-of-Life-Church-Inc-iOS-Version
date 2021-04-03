@@ -45,6 +45,9 @@ class SectionTableViewController: UITableViewController {
         if passedSection == "liveTranslation" {
             self.navigationItem.title = "CHANNEL"
         }
+        else if passedSection == "seminarSection" {
+            self.navigationItem.title = "HISTORY OF REDEMPTION SEMINAR"
+        }
         else {
             self.navigationItem.title = "SERVICE"
         }
@@ -119,11 +122,14 @@ class SectionTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        mainView.deselectRow(at: indexPath, animated: true)
         if passedSection == "liveTranslation" {
             guard let vc = storyboard?.instantiateViewController(withIdentifier: "LiveTranslationViewController") as? LiveTranslationViewController else {
                 return
             }
-            vc.passedSection = liveTranslations[indexPath.row].sectionTitle
+            vc.passedLiveUrl = liveTranslations[indexPath.row].liveUrl
+            vc.passedSectionTitle = liveTranslations[indexPath.row].sectionTitle
+            vc.passedTranslatorName = liveTranslations[indexPath.row].translatorName
             AudioServicesPlaySystemSound(1519)
             present(vc, animated: true)
             
