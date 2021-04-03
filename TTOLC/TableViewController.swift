@@ -54,7 +54,8 @@ class TableViewController: UITableViewController {
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = "SERMONS"
+//        self.navigationItem.title = "SERMONS"
+        self.navigationItem.title = passedSection
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -68,8 +69,6 @@ class TableViewController: UITableViewController {
         searching = false
         searchBar.text = ""
         tableView.reloadData()
-        
-        
     }
     
     @objc func requestData() {
@@ -100,24 +99,59 @@ class TableViewController: UITableViewController {
         })
     }
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let safeArea = UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.safeAreaInsets.top ?? 0
-        let safeAreaTop: CGFloat = safeArea + (navigationController?.navigationBar.frame.height ?? 0)
-        
-        let offset = scrollView.contentOffset.y + safeAreaTop
-        
-        let alpha: CGFloat = 1 - ((scrollView.contentOffset.y + safeAreaTop) / safeAreaTop)
-        navigationController?.navigationBar.alpha = alpha
-        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
-    }
+//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let safeArea = UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.safeAreaInsets.top ?? 0
+//        let safeAreaTop: CGFloat = safeArea + (navigationController?.navigationBar.frame.height ?? 0)
+//        
+//        let offset = scrollView.contentOffset.y + safeAreaTop
+//        
+//        let alpha: CGFloat = 1 - ((scrollView.contentOffset.y + safeAreaTop) / safeAreaTop)
+//        navigationController?.navigationBar.alpha = alpha
+//        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
+//    }
     
     // TableView
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 95
     }
     
+    func countLabelLines(label: UILabel) -> Int {
+        // Call self.layoutIfNeeded() if your view uses auto layout
+        let myText = label.text! as NSString
+
+        let rect = CGSize(width: label.bounds.width, height: CGFloat.greatestFiniteMagnitude)
+        let labelSize = myText.boundingRect(with: rect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: label.font!], context: nil)
+
+        return Int(ceil(CGFloat(labelSize.height) / label.font.lineHeight))
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
+        
+        cell.titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        cell.titleLabel.topAnchor.constraint(equalTo: cell.cellView.topAnchor, constant: 0).isActive = true
+        cell.titleLabel.leftAnchor.constraint(equalTo: cell.thumbnailImage.rightAnchor, constant: 9).isActive = true
+        cell.titleLabel.rightAnchor.constraint(equalTo: cell.cellView.rightAnchor).isActive = true
+        cell.titleLabel.heightAnchor.constraint(equalToConstant: cell.titleLabel.frame.size.height).isActive = true
+        
+        cell.bibleVerseLabel.translatesAutoresizingMaskIntoConstraints = false
+        cell.bibleVerseLabel.topAnchor.constraint(equalTo: cell.titleLabel.bottomAnchor, constant: 1).isActive = true
+        cell.bibleVerseLabel.leftAnchor.constraint(equalTo: cell.titleLabel.leftAnchor).isActive = true
+        cell.bibleVerseLabel.rightAnchor.constraint(equalTo: cell.cellView.rightAnchor).isActive = true
+        cell.bibleVerseLabel.heightAnchor.constraint(equalToConstant: cell.bibleVerseLabel.frame.size.height).isActive = true
+        
+        cell.pastorNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        cell.pastorNameLabel.topAnchor.constraint(equalTo: cell.bibleVerseLabel.bottomAnchor, constant: 1).isActive = true
+        cell.pastorNameLabel.leftAnchor.constraint(equalTo: cell.titleLabel.leftAnchor).isActive = true
+        cell.pastorNameLabel.rightAnchor.constraint(equalTo: cell.cellView.rightAnchor).isActive = true
+        cell.pastorNameLabel.heightAnchor.constraint(equalToConstant: cell.pastorNameLabel.frame.size.height).isActive = true
+        
+        cell.dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        cell.dateLabel.topAnchor.constraint(equalTo: cell.pastorNameLabel.bottomAnchor, constant: 1).isActive = true
+        cell.dateLabel.leftAnchor.constraint(equalTo: cell.titleLabel.leftAnchor).isActive = true
+        cell.dateLabel.rightAnchor.constraint(equalTo: cell.cellView.rightAnchor).isActive = true
+        cell.dateLabel.heightAnchor.constraint(equalToConstant: cell.dateLabel.frame.size.height).isActive = true
+        
         if searching {
             let url = URL(string: "https://drive.google.com/uc?export=view&id=\(filteredArray[indexPath.row].imageUrl)")
             cell.thumbnailImage.loadImage(from: url!)
@@ -159,7 +193,7 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
+        mainView.deselectRow(at: indexPath, animated: true)
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "VideoViewController") as? VideoViewController else {
             return
         }
@@ -169,7 +203,6 @@ class TableViewController: UITableViewController {
             var index = 0
             while index < posts.count {
                 if searchCaption == posts[index].title {
-                    print(index)
                     break
                 }
                 index += 1
@@ -195,6 +228,10 @@ class TableViewController: UITableViewController {
 //        self.navigationController?.pushViewController(vc, animated: true)
         present(vc, animated: true)
     }
+}
+
+extension UILabel {
+    
 }
 
 extension TableViewController: UISearchBarDelegate {
