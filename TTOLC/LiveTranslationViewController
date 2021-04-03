@@ -1,0 +1,126 @@
+//
+//  LiveTranslationViewController.swift
+//  TTOLC
+//
+//  Created by Dowon on 2/16/21.
+//  Copyright © 2021 Dowon. All rights reserved.
+//
+
+import UIKit
+import youtube_ios_player_helper
+import AudioToolbox
+import MediaPlayer
+
+var originalVolume = Float()
+
+class LiveTranslationViewController: UIViewController, YTPlayerViewDelegate {
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var liveView: YTPlayerView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var playButton: UIButton!
+    var toggleSwitch = false
+    var passedLiveUrl = ""
+    var passedSectionTitle = ""
+    var passedTranslatorName = ""
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        layoutSetUp()
+//        addGradient()
+        
+        liveView.load(withVideoId: passedLiveUrl, playerVars: ["playsinline": 1])
+        print(passedLiveUrl)
+        print(passedSectionTitle)
+        print(passedTranslatorName)
+    }
+    
+    func layoutSetUp() {
+        liveView.delegate = self
+        
+        self.contentView.layer.cornerRadius = self.contentView.frame.width/10.0
+        self.contentView.clipsToBounds = true
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        contentView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        contentView.heightAnchor.constraint(equalToConstant: view.frame.width / 1.119).isActive = true
+        
+        liveView.translatesAutoresizingMaskIntoConstraints = false
+        liveView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        liveView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        liveView.topAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        liveView.heightAnchor.constraint(equalToConstant: CGFloat((liveView.frame.size.width / 16) * 9.6)).isActive = true
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = contentView.bounds
+        contentView.addSubview(blurEffectView)
+        contentView.sendSubviewToBack(blurEffectView)
+
+        self.image.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        contentView.alpha = 0
+        image.alpha = 0
+        
+        UIView.animate(withDuration: 1.2) {
+            self.image.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.image.alpha = 1
+        }
+        UIView.animate(withDuration: 1.0, delay: 0.5 ,animations: {
+            self.contentView.alpha = 1
+        })
+//        contentView.layer.shadowOffset = CGSize(width: 0, height: 1)
+//        contentView.layer.shadowOpacity = 1
+//        contentView.layer.shadowColor = UIColor.black.cgColor
+    }
+    
+    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
+        AudioServicesPlaySystemSound(1519)
+        liveView.playVideo()
+        // Set Volumn to 0 for checking that is live or not
+        MPVolumeView.setVolume(0.0)
+    }
+    
+    // After checking video that is live or not, set original volumn
+    func volumnBack() {
+        MPVolumeView.setVolume(0.7)
+    }
+    
+    // This Function is for checking video that is live or not
+    func playerView(_ playerView: YTPlayerView, didPlayTime playTime: Float) {
+        playerView.duration { (duration, error) in
+//            print("time: \(playTime) duration: \(duration)")
+            // Live Video has 0.0 duration but sometimes it is 15.0 duration time
+            if (duration == 0.0 || duration == 15.0){
+//                self.liveView.stopVideo()
+                if self.toggleSwitch == false {
+//                    print("It is live")
+                    self.playButton.setTitle("Live", for: .normal)
+                    self.volumnBack()
+                    // Live Switch on
+                    self.toggleSwitch = true
+                }
+            }
+            else {
+//                print("It is not live")
+                self.playButton.setTitle("Not Live", for: .normal)
+                self.liveView.stopVideo()
+            }
+        }
+    }
+}
+
+extension MPVolumeView {
+    static func setVolume(_ volume: Float) {
+        let volumeView = MPVolumeView()
+        let slider = volumeView.subviews.first(where: { $0 is UISlider }) as? UISlider
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
+            originalVolume = slider!.value
+            slider?.value = volume
+            
+        }
+    }
+}
