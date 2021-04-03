@@ -18,6 +18,32 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegat
     @IBOutlet weak var sermonButtonView: UIView!
     @IBOutlet weak var pagecontrol: UIPageControl!
     
+    let currentVersion = "1.0"
+    func checkLatestVersion() {
+        ref = Database.database().reference().child("currentVersion")
+        ref.observe(DataEventType.childAdded, with: { [self](snapshot) in
+                print(Thread.isMainThread)
+                if let dict = snapshot.value as? [String: Any] {
+                    let latestVersionString = dict["latestVersion"] as! String
+                    let appStoreIdString = dict["appStoreId"] as! String
+                    
+                    // The alert keeps popping up until the latest version is installed
+                    if currentVersion != latestVersionString  {
+                        self.mainView.alpha = 0
+                        let alert = UIAlertController(title: "A new version has been released so please update it", message: nil, preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "Update", style: UIAlertAction.Style.default, handler: {_ in
+                            let url  = NSURL(string: "itms-apps://itunes.apple.com/app/id" + appStoreIdString)
+                            if UIApplication.shared.canOpenURL(url! as URL) == true  {
+                                UIApplication.shared.open(url! as URL)
+                            }
+                        }))
+                        alert.view.tintColor = UIColor.black
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            })
+        }
+    
     var mainMenu = [MainMenu]()
     var ref: DatabaseReference!
     let notification = UINotificationFeedbackGenerator()
@@ -46,16 +72,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegat
         return refreshControl
     }()
     
-//    override var prefersStatusBarHidden: Bool {
-//        return true
-//    }
-
-
-    
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         pagecontrol.transform = pagecontrol.transform.rotated(by: .pi/2)
         pagecontrol.numberOfPages = 4
-       
         
         if view.frame.size.height <= view.frame.size.width * 2{
             print("screen ratio is 16:9 as iphone 8")
@@ -89,9 +110,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegat
             bottom.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
             
         }
-        
-
-        super.viewDidLoad()
+        checkLatestVersion()
         loadMainMenu()
         sectionTable.delegate = self
         sectionTable.dataSource = self
@@ -119,10 +138,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegat
         underbar.layer.shadowOpacity = 0.2
         underbar.layer.shadowColor = UIColor.black.cgColor
         
-        
-        
-        
-        
         button1.frame.size.width = 70
         button1.frame.size.height = 70
         button2.frame.size.width = 70
@@ -145,11 +160,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegat
         button6.translatesAutoresizingMaskIntoConstraints = false
         backButtonView.translatesAutoresizingMaskIntoConstraints = false
         print(button1.frame.size.width)
-        
-        
-        
-    
-        
         
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -215,6 +225,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegat
         button6.layer.masksToBounds = true
         backButtonView.layer.cornerRadius = button1.frame.size.height / 2
         backButtonView.layer.masksToBounds = true
+
+        
     }
 
     
@@ -222,7 +234,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegat
         let page = sectionTable.contentOffset.y / sectionTable.frame.height
         pagecontrol.currentPage = Int(page)
     }
-    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -255,6 +266,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegat
             vc.passedIndex = indexPath.row
             vc.passedMainMenu = mainMenu
             vc.passedSectionTitle = mainMenu[indexPath.row].title
+            vc.passedImage2Url = mainMenu[indexPath.row].image2Url
+            vc.passedImage3Url = mainMenu[indexPath.row].image3Url
             AudioServicesPlaySystemSound(1519)
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -277,7 +290,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegat
                     let titleString = dict["title"] as! String
                     let imageUrlString = dict["imageUrl"] as! String
                     let image2UrlString = dict["image2Url"] as! String
-                    let menu = MainMenu(titleString: titleString, imageUrlString: imageUrlString, image2UrlString: image2UrlString)
+                    let image3UrlString = dict["image3Url"] as! String
+                    let menu = MainMenu(titleString: titleString, imageUrlString: imageUrlString, image2UrlString: image2UrlString, image3UrlString: image3UrlString)
                     self.mainMenu.append(menu)
     //                self.posts.sort(by: {$0.caption > $1.caption})
                     self.sectionTable.insertRows(at: [IndexPath(row: self.mainMenu.count-1, section: 0)], with: UITableView.RowAnimation.automatic)
@@ -486,7 +500,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegat
     }
     
     @IBAction func missionaryButtonClicked(_ sender: UIButton) {
-        passingSection = "missonarySection"
+        passingSection = "seminarSection"
         segueAction()
     }
     
