@@ -9,6 +9,7 @@
 import UIKit
 import AudioToolbox
 import MessageUI
+import Firebase
 
 class DetailBookViewController: UIViewController, MFMailComposeViewControllerDelegate{
 
@@ -22,11 +23,18 @@ class DetailBookViewController: UIViewController, MFMailComposeViewControllerDel
     @IBOutlet weak var buyingButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
+    
+    var ref: DatabaseReference!
+    var englishText = ""
+    var koreanText = ""
+    var spanishText = ""
+    var indonesianText = ""
+    var chineseText = ""
+    
     var passedHorBooks = [HorBooks]()
     var passedIndex = 0
-    
     var passedViewController = ""
-    
+    var passedImage3Url = ""
     let screenSize = UIScreen.main.bounds
     
     override func viewDidLoad() {
@@ -37,23 +45,65 @@ class DetailBookViewController: UIViewController, MFMailComposeViewControllerDel
     
     private func changableObjects() {
         if passedViewController == "ABOUT US" {
-            let url = URL(string: "https://drive.google.com/uc?export=view&id=\("1L-Rk_oHKz6YXItFjOwvwwSn94Jv2ypBj")")
+            let url = URL(string: "https://drive.google.com/uc?export=view&id=\(passedImage3Url)")
             image.loadImage(from: url!)
-            
             titleLabel.text = "REV.JOHN LEE"
             detailLabel.text = "이은식 목사님"
             buyingButton.setTitle("LEAD PASTOR", for: .normal)
             buyingButton.isEnabled = false
+            shareButton.alpha = 0
+            shareButtonImage.alpha = 0
+    
+            // taking description text from server
+            ref = Database.database().reference().child("aboutUsDescription").child("ourPastor")
+            ref.observe(DataEventType.childAdded, with: {(snapshot) in
+            print(Thread.isMainThread)
+                if let dict = snapshot.value as? [String: Any] {
+                    let english = dict["englishText"] as! String
+                    self.englishText = english
+                    self.descriptionTextView.text = self.englishText
+
+                    let korean = dict["koreanText"] as! String
+                    self.koreanText = korean
+                    let spanish = dict["spanishText"] as! String
+                    self.spanishText = spanish
+                    let indonesian = dict["indonesianText"] as! String
+                    self.indonesianText = indonesian
+                    let chinese = dict["chineseText"] as! String
+                    self.chineseText = chinese
+                }
+            })
         }
        
         else if passedViewController == "HISTORY OF REDEMPTION" {
-            let url = URL(string: "https://drive.google.com/uc?export=view&id=\("12m6LNmw6s7Nq63-W9tD3loH_jUxoeDp_")")
+            let url = URL(string: "https://drive.google.com/uc?export=view&id=\(passedImage3Url)")
             image.loadImage(from: url!)
-            
             titleLabel.text = "REV.DR.ABRAHAM PARK"
             detailLabel.text = "박윤식 원로목사님"
             buyingButton.setTitle("AUTHOR", for: .normal)
             buyingButton.isEnabled = false
+            shareButton.alpha = 0
+            shareButtonImage.alpha = 0
+            
+            // taking description text from server
+            ref = Database.database().reference().child("historyOfRedemptionDescription").child("aboutAuthor")
+            ref.observe(DataEventType.childAdded, with: {(snapshot) in
+            print(Thread.isMainThread)
+                if let dict = snapshot.value as? [String: Any] {
+                    let english = dict["englishText"] as! String
+                    self.englishText = english
+                    self.descriptionTextView.text = self.englishText
+
+                    let korean = dict["koreanText"] as! String
+                    self.koreanText = korean
+                    let spanish = dict["spanishText"] as! String
+                    self.spanishText = spanish
+                    let indonesian = dict["indonesianText"] as! String
+                    self.indonesianText = indonesian
+                    let chinese = dict["chineseText"] as! String
+                    self.chineseText = chinese
+                }
+            })
         }
         
         else {
@@ -124,11 +174,34 @@ class DetailBookViewController: UIViewController, MFMailComposeViewControllerDel
         
     }
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            descriptionTextView.text = englishText
+        }
+        else if sender.selectedSegmentIndex == 1 {
+            descriptionTextView.text = koreanText
+        }
+        else if sender.selectedSegmentIndex == 2 {
+            descriptionTextView.text = spanishText
+        }
+        if sender.selectedSegmentIndex == 3 {
+            descriptionTextView.text = indonesianText
+        }
+        if sender.selectedSegmentIndex == 4 {
+            descriptionTextView.text = chineseText
+        }
+        
+        descriptionTextView.alpha = 0
+        AudioServicesPlaySystemSound(1519)
+        UIView.animate(withDuration: 1.0) {
+            self.descriptionTextView.alpha = 1
+        }
     }
     
     @IBAction func shareButtonClicked(_ sender: UIButton) {
     let items = ["http://horaministries.com/about-the-books/"]
     let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+
+    
     AudioServicesPlaySystemSound(1519)
     present(ac, animated: true)
     }
