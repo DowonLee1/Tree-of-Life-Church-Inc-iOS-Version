@@ -1,5 +1,11 @@
 # Tree-of-Life-Church-Inc-Non-Apple-Pay-Version
 
+![1aa](https://user-images.githubusercontent.com/25316124/119722043-e0458d80-be39-11eb-9517-f302e4c270e5.jpg)
+![1bb](https://user-images.githubusercontent.com/25316124/119722056-e2a7e780-be39-11eb-8781-4dd22f0b0ca0.jpg)
+![c](https://user-images.githubusercontent.com/25316124/119722180-05d29700-be3a-11eb-8967-77f843c85315.jpg)
+![d](https://user-images.githubusercontent.com/25316124/119722196-09661e00-be3a-11eb-9c78-4fe6f3545bca.jpg)
+
+
 ## Product Vision
 FOR groups of friends or Office teams WHO want to plan a lunch event.(THE)
 Devour is a social food browsing and recommendation service THAT provides
@@ -23,15 +29,12 @@ Unlike zoom where anyone can enter any meeting our application will prioritize *
 #### Software Reuse
 We are also prioritizing using APIs. Yes this means our software may be slower due to our app communicating with other API's however it will increase the production time and maintainability of our app because we do not mind creating functions around these APIs. 
 
-
-![LayeredArchitecture](./READMEassets/LayeredArch.png)
-
 ## Technologies
-- Database - MongoDB (NoSQL)
-- Platform - It will be presented as a web platform.
-- Server - Our application will communicate with a cloud server
-- Open Source - Yelp API, we are limited to 5,000 API calls per 24 hours.
-- Development Tools - MERN stack, due to our team's previous experiences 
+- Database - Firebase(NoSQL)
+- Platform - Ios, Android(In Progress)
+- Server - Firebase cloud server
+- Open Source - Youtube API
+- Development Tools - Xcode, Sketch(UI/UX), iMovie(Video Editing)
 
 
 ## Dependancy Manager
