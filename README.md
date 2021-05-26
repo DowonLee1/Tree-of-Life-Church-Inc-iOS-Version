@@ -7,27 +7,9 @@
 
 
 ## Product Vision
-FOR groups of friends or Office teams WHO want to plan a lunch event.(THE)
-Devour is a social food browsing and recommendation service THAT provides
-users a way to organize dinner plans with friends, colleagues, even family members taking everyone’s preferences in mind. UNLIKE Yelp, rather than being a
-search tool, we offer suggestions to the customer, tailored to their preferred cuisine while also helping restaurants promote their business. UNLIKE seamless,
-ubereats, grubhub, we do not focus on delivering the food to the customer and
-we also don’t charge commissions to restaurants directly . This is attractive to
-restaurants because the commission they pay to these delivery services is often
-too high. Instead we will focus on charging a commision service from the delivery services directly where they in return will get more exposure to potential
-new customers. OUR PRODUCT provides a social twist and exciting twist
-on dining with friends.
+You can find sermon channels divided into 5 languages and sermons you want by category. You can also easily browse missionary videos. You can easily view all church information and events. We support online donations or offering in environments where it is difficult to attend worship services directly due to COVID-19, and support a mobile translation system that will replace the use of a direct translation device. In addition, sermons can be easily mirrored and viewed on a smart TV.
 
 ## Software Priorities/Important Qualities
-
-#### Software Compatibility 
-Our app will prioritize Software Compatibility. This is because we want users to seamlessly interact with each other no matter which OS they are using. For vendors to utilize our user base our software will also need to be compatible with third party ordering and reservation apps. 
-
-#### Security (Nonfunctional Product Characteristic)
-Unlike zoom where anyone can enter any meeting our application will prioritize **security**. Our app has a table feature, similar to a lobby where friends can meet up before they decide on a restaurant to go out to. We want this feature to be secure, we don't want users to be able to view group chats or be apart of tables they didn't get invited to. 
-
-#### Software Reuse
-We are also prioritizing using APIs. Yes this means our software may be slower due to our app communicating with other API's however it will increase the production time and maintainability of our app because we do not mind creating functions around these APIs. 
 
 ## Technologies
 - Database - Firebase(NoSQL)
@@ -36,10 +18,14 @@ We are also prioritizing using APIs. Yes this means our software may be slower d
 - Open Source - Youtube API
 - Development Tools - Xcode, Sketch(UI/UX), iMovie(Video Editing)
 
-## Developed By
-- Dowon Lee
+## All Developed By Dowon Lee
+- Front-End by Dowon
+- Back-End by Dowon
+- UI/UX by Dowon
+- Design by Dowon
+- Video Edit by Dowon
 
 ## Develop Period
-- 11 Month
+- 11 Month(UI/UX, Database, Server, Online Offering(Apple Pay, Donor Box), Live Translation Channels, Optimization)
 - At the last, Apple Pay removed for future update due to many document procedure
 
