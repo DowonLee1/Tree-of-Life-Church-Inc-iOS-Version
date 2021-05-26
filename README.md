@@ -36,30 +36,10 @@ We are also prioritizing using APIs. Yes this means our software may be slower d
 - Open Source - Youtube API
 - Development Tools - Xcode, Sketch(UI/UX), iMovie(Video Editing)
 
+## Developed By
+- Dowon Lee
 
-## Dependancy Manager
-start the program in the CMD by going into the backend folder and running:
-```bash
-'npm start'
-```
-
-## Group Members 
-- Rumman Al 
-- KarimDowon Lee
-- John Solano
-- William Ullauri
-- Ivan Yatsko
-
-# Docker
-cd into frontend2 and run
-
-```
-docker pull davidullauri/devour
-```
-
-cd into backend and run
-
-```
-docker pull davidullauri/devour-backend
-```
+## Develop Period
+- 11 Month
+- At the last, Apple Pay removed for future update due to many document procedure
 
