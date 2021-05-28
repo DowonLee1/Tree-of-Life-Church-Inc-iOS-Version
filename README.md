@@ -9,8 +9,6 @@
 ## Product Vision
 You can find sermon channels divided into 5 languages and sermons you want by category. You can also easily browse missionary videos. You can easily view all church information and events. We support online donations or offering in environments where it is difficult to attend worship services directly due to COVID-19, and support a mobile translation system that will replace the use of a direct translation device. In addition, sermons can be easily mirrored and viewed on a smart TV.
 
-## Software Priorities/Important Qualities
-
 ## Technologies
 - Database - Firebase(NoSQL)
 - Platform - Ios, Android(In Progress)
