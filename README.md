@@ -25,27 +25,27 @@ You can find sermon channels divided into 5 languages and sermons you want by ca
 
 ## Develop History
 
-## Handling video(Sermons) contents
+## Handling Video(Sermons) Contents
 
 At the time of initial development, all video content of the church was stored on the YouTube site.  At this point, I thought there was no need to spend more money and run another server, so I decided to use the YouTube API.  This is because, if you use the YouTube API, you can maximize cost reduction and easy management.  It was decided to use the framework by extracting only YouTube video frames.
 
-## Handling REAl-time database server
+## Handling REAl-Time Database Server
 
 Considering the characteristics of the church in the initial development stage, I felt the need for a Real-Time Database because new contents were added every day or every week.  Because there was a limit to running the server 24 hours a day, we decided to use an external server and decided to use Google's Firebase.  Although there were choices of other platforms such as AWS and MongoDB, I chose Firebase because it has advantages for small and medium-sized management.  
 
 Firebase's NoSql format brought many advantages in terms of data management. I was not bound by the format and was able to modify it without any problem even if there was an additional point of data format.  Except for technical updates, everything was developed to be done on the server.
 
-## Handling live streaming detection
+## Handling Live Streaming Detection
 
 When a church runs a live streaming sermon on YouTube, there are several factors that the app can detect.  In the case of live streaming, we found that the duration was 14 seconds or 0 seconds.  If the duration of the video is 14 seconds or 0 seconds when the video is played, it is coded to display a live streaming sign.
 
-## Handling Live Translation channels (4 channels)
+## Handling Live Translation Channels (4 Channels)
 
 The Live Translation function, one of the characteristics of this church, was also implemented in mobile. This church was using a Translation Device.  The machine simply served as an interpreter to translate and deliver it to people.  Considering minimal contact through the Covid-19 period, it was the best way to implement it on mobile.  In this process, we decided to use the Youbut API without choosing to use any additional equipment. 
 
 The advantage of this process is that it is easy to handle.  In this process, only sound can be transmitted.  Since Live Translation should only work in the Live environment, the duration of the video was detected in this process as well.  It was made to be executed only when the duration of the video was 14 or 0 seconds.
 
-## handling online donation or offering (Apple pay)
+## Handling Online Donation Or Offering (Apple pay)
 
 Due to the Covid-19 period, there was a need for online donations. In this case, it was built so that you can easily donate or offer through Apple Pay. Apple Pay was implemented using Apple's Passkit, but in the end, it was decided to implement as a later update due to various payment process problems.
 
