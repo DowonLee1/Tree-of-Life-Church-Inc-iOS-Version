@@ -23,7 +23,7 @@ You can find sermon channels divided into 5 languages and sermons you want by ca
 - Design by Dowon
 - Video Edit by Dowon
 
-## Develop history
+## Develop History
 
 ## Handling video(Sermons) contents
 
