@@ -25,7 +25,7 @@ You can find sermon channels divided into 5 languages and sermons you want by ca
 
 #### Develop history
 
-##Handling video(Sermons) contents
+## Handling video(Sermons) contents
 
 At the time of initial development, all video content of the church was stored on the YouTube site.  At this point, I thought there was no need to spend more money and run another server, so I decided to use the YouTube API.  This is because, if you use the YouTube API, you can maximize cost reduction and easy management.  It was decided to use the framework by extracting only YouTube video frames.
 
