@@ -54,3 +54,11 @@ Due to the Covid-19 period, there was a need for online donations. In this case,
 The most important point when implementing UI/UX was the neatness of the design and the easy-to-use experience. The priority was to divide the process into a minimum number of processes so that users do not get lost.  In the case of sermons, the sermons were divided into 5 languages ​​+ missionary videos, and the sermons for each language were classified by classification to make them easier to access.  In the case of the main page, important functions are placed at the bottom of the screen and important information is placed in the center of the screen.  
 
 Also, in the case of images, NSCache data is used so that when the same image comes out, it can be displayed through quick access without downloading it again.  In addition, the minimum management cost was selected by using Google Drive rather than storing it in Google Firebase. Because in the case of Google Firebase, if you use more than 1GB of data, you pay monthly.
+
+## Handling time complexity (Big-0 notation) for sorting data 
+
+When sorting data in the database, it is sorted by date. The first reason for not using the timestamp was because it was complicated to manually find data on the server, and the second was because there were already 2-3 years of data on YouTube in the early stages of development.When an app requests data from the server, the largest number is the last request. For example, it should be sorted by newest, but it was sorted by oldest. In this case, it is O(n^2) instead of O(n) when considering time complexity because data needs to be sorted again in the array after parsing.  
+
+In this case, after considering the characteristics of the data being reversed, I started organizing with the opposite concept. In other words, "-" was added in front of the date number to make it a negative number. After converting the date to negative, the data could be sorted in the latest order without a separate sorting.
+
+
